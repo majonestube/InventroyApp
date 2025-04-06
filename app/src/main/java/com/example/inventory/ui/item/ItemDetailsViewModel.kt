@@ -62,6 +62,12 @@ class ItemDetailsViewModel(
             }
         }
     }
+
+    fun deleteItem() {
+        viewModelScope.launch {
+            itemsRepository.deleteItem(uiState.value.itemDetails.toItem())
+        }
+    }
 }
 
 /**
